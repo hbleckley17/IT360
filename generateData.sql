@@ -1,6 +1,6 @@
 INSERT INTO midshipmen (alpha,firstname,lastname,password) VALUES
-(201368,'Lani','Davis','USSRonadlReagan'),
-(200000,'US','NA','BEATARMY');
+(201368,'Lani','Davis','$2y$10$dmPSQNc8h1uZ6l6eMeSu.evriBgAL3Cr7ImkPX9ahK2OVJ0LXUue.'),
+(200000,'US','NA','$2y$10$UqEJ/ybL4LZ55bbbjI5K6ue/P75t7/d68jWeQv.9brCbq8KlNPvay');
 INSERT INTO weekends_left(alpha,weekends_left) VALUES
 (201368,99),
 (200000,20);
