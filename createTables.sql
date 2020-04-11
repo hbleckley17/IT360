@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS it360_weekend_tracker.midshipmen (
   alpha INT NOT NULL,
   firstname VARCHAR(16) NOT NULL,
   lastname VARCHAR(16) NOT NULL,
-  password VARCHAR(45) NOT NULL,
+  password VARCHAR(250) NOT NULL,
   CONSTRAINT PK_midshipmen_alpha PRIMARY KEY (alpha));
 
 
