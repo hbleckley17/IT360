@@ -1,6 +1,7 @@
 /*
 Will drop all tables from the weekend tracker database
 */
+DROP TABLE auth_session;
 DROP TABLE weekends_left;
 DROP TABLE weekendextra;
 DROP TABLE Company;

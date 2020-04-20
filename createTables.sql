@@ -9,6 +9,7 @@
 
 USE it360_weekend_tracker ;
 
+
 -- -----------------------------------------------------
 -- Table it360_weekend_tracker.midshipmen
 -- -----------------------------------------------------
@@ -19,7 +20,24 @@ CREATE TABLE IF NOT EXISTS it360_weekend_tracker.midshipmen (
   firstname VARCHAR(16) NOT NULL,
   lastname VARCHAR(16) NOT NULL,
   password VARCHAR(250) NOT NULL,
+  session TEXT NULL,
+  lastlogin TIMESTAMP NULL,
   CONSTRAINT PK_midshipmen_alpha PRIMARY KEY (alpha));
+
+
+-- -----------------------------------------------------
+-- Table it360_weekend_tracker.midshipmen
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS auth_session;
+CREATE TABLE auth_session (
+ `alpha` INT NOT NULL,
+ `id` VARCHAR(96) NOT NULL,
+ `lastvisit` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT PK_auth_session PRIMARY KEY (id),
+  CONSTRAINT FK_auth_session_alpha FOREIGN KEY(alpha)
+  REFERENCES midshipmen (alpha)
+  ON DELETE CASCADE ON UPDATE CASCADE
+);
 
 
 -- -----------------------------------------------------
