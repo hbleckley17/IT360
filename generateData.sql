@@ -4,9 +4,9 @@ INSERT INTO midshipmen (alpha,firstname,lastname,password) VALUES
 INSERT INTO weekends_left(alpha,weekends_left) VALUES
 (201368,99),
 (200000,20);
-INSERT INTO incentives_available(incentives_available,rewarddescrip) VALUES
-('Army-Navy Football Win','1 Beat Army Weekend'),
-('Midshipmen of the Month-1/C','An extra upperclass weekend and extended EOL');
+INSERT INTO incentives_available(incentives_available,rewarddescrip,adds_weekend) VALUES
+('Army-Navy Football Win','1 Beat Army Weekend',1),
+('Midshipmen of the Month-1/C','An extra upperclass weekend and extended EOL',1);
 INSERT INTO incentives(alpha,incentive_id) VALUES
 (201368,1),
 (200000,2);
