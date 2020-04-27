@@ -34,6 +34,14 @@
           <label for="exampleFormControlInput1">Reward </label>
           <input type="reward" class="form-control" name="reward" placeholder="What does this incentive give someone?">
         </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">If applicable, how many weekends does this incentive give a midshipman? (Choose 0 if not applicable) </label>
+          <select type="rtype" class="form-control" name="weekend">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+          </select>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         </div>
@@ -60,12 +68,13 @@ $alpha=$_POST["alpha"];
 $name=$_POST["name"];
 $reward=$_POST["reward"];
 $id=$_POST["id"];
+$weekend=$_POST["weekend"];
 
-if($name!='' && $reward !=''){
-    $query = "INSERT INTO incentives_available(incentives_available,rewarddescrip) VALUES (?,?)";
+if($name!='' && $reward !='' && $weekend !=''){
+    $query = "INSERT INTO incentives_available(incentives_available,rewarddescrip,adds_weekend) VALUES (?,?,?)";
     $stmt = $db->stmt_init();
     $stmt->prepare($query);
-    $stmt->bind_param('ss', $name, $reward);
+    $stmt->bind_param('ssi', $name, $reward,$weekend);
     #$page->content .= $stmt;
     $success = $stmt->execute();
     if (!$success || $db->affected_rows == 0) {
@@ -91,7 +100,7 @@ if ($alpha!='' && $id!='') {
     $page->content .= '<h2> Your midshipmen was awarded the incentive! </h2></div></div>';
   }
 }
-$query = "SELECT *
+$query = "SELECT incentive_id,incentives_available,rewarddescrip,adds_weekend
             FROM incentives_available";
   $stmt = $db->stmt_init();
   $stmt->prepare($query);
@@ -99,11 +108,11 @@ $query = "SELECT *
   if (!$success || $db->affected_rows == 0) {
   $page->content .= "<h5>ERROR: " . $db->error . " for query *$query*</h5><hr>";
   }
-  $page->content .= "</div><h2> Current Incentives </h2><div class=\"row content\">  <div class=\"col-sm-8 text-left\"> <table class=\"table table-striped table-bordered table-hover\"><thead><tr><th> IncentiveID </th><th> Name </th><th> Reward </th></tr></thead><tbody>";
+  $page->content .= "</div><h2> Current Incentives </h2><div class=\"row content\">  <div class=\"col-sm-8 text-left\"> <table class=\"table table-striped table-bordered table-hover\"><thead><tr><th> IncentiveID </th><th> Name </th><th> Reward </th><th> How many weekends does it add? </th></tr></thead><tbody>";
 
-  $stmt->bind_result($incentive_ID, $Name, $Descrip);
+  $stmt->bind_result($incentive_ID, $Name, $Descrip,$extra);
   while ($row = $stmt->fetch()) {
-    $page->content .= "<tr><td>$incentive_ID</td><td>$Name</td><td>$Descrip</td></tr>";
+    $page->content .= "<tr><td>$incentive_ID</td><td>$Name</td><td>$Descrip</td><td>$extra</td></tr>";
   }
 
   $page->content .= "</tbody></table></div></div></div></div>";

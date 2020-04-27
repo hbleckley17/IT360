@@ -59,11 +59,12 @@ CREATE TABLE IF NOT EXISTS it360_weekend_tracker.weekends_left (
 -- Table it360_weekend_tracker.incentives_available
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS it360_weekend_tracker.incentives_available ;
-/* incentive_id- > incentives_available, rewarddescrip*/
+/* incentive_id- > incentives_available, rewarddescrip, adds_weekend*/
 CREATE TABLE IF NOT EXISTS it360_weekend_tracker.incentives_available (
   incentive_id INT NOT NULL AUTO_INCREMENT,
   incentives_available VARCHAR(45) NOT NULL,
   rewarddescrip VARCHAR(45) NOT NULL,
+  adds_weekend INT NOT NULL,
   CONSTRAINT PK_incentives_available_incentive_id PRIMARY KEY (incentive_id),
   CONSTRAINT AK_incentives_available_incentives_available UNIQUE (incentives_available));
 
