@@ -1,7 +1,7 @@
 <?php
   //Lani Davis m201368
   // Load the Page Class (insnamee of page.inc.php)
-  #require_once("auth.inc.php");
+  require_once("auth.inc.php");
   require_once("page.inc.php");
   require_once('mysql.inc.php');    # MySQL Connection Library
   $db = new myConnectDB();
@@ -16,15 +16,15 @@
   <div class="container-fluid text-left">
     <div class="col-sm-12 text-left">
       <h1>Update your information!</h1>
-      <p> Update an of the information you need to int this form!<br>
+      <p> Update any of your information you need to in this form! You are currently logged in as alpha: '.$username.'<br>
       *indicates required field</p>
       <hr>
     </div>
     <div class="col-sm-8 text-left">
       <form action="update.php" method="post">
         <div class="form-group">
-          <label for="exampleFormControlInput1">Alpha*</label>
-          <input type="alpha" class="form-control" name="alpha" placeholder="2XXXXX">
+          <label for="exampleFormControlInput1">Password </label>
+          <input type="password" class="form-control" name="password" placeholder="password">
         </div>
         <div class="form-group">
           <label for="exampleFormControlInput1">Company </label>
@@ -43,12 +43,13 @@
         </div>
         ';
 
-$alpha=$_POST["alpha"];
+$alpha=$username;
 $company=$_POST["company"];
 $cell=$_POST["cell"];
 $sponsor=$_POST["sponsor"];
-if($alpha==''||($company==''&&$cell==''&&$sponsor=='')){
-  $page->content .= '<div class="col-sm-12 text-left"><h2>Please submit your alpha and the information you would like to update. </h2>
+$password=$_POST["password"];
+if($alpha==''||($company==''&&$cell==''&&$sponsor==''&&$password=='')){
+  $page->content .= '<div class="col-sm-12 text-left"><h2>Please submit the information you would like to update. </h2>
   </div></div>';
 }
 if($alpha!=''){
@@ -67,6 +68,24 @@ if($alpha!=''){
     }
     else {
       $page->content .= '<h2> Your company was successfully updated! </h2></div></div>';
+    }
+  }
+  if($password!=''){
+    $hash=password_hash($password, PASSWORD_DEFAULT);
+    $query = "UPDATE midshipmen
+              SET password=?
+              WHERE alpha=?";
+    $stmt = $db->stmt_init();
+    $stmt->prepare($query);
+    $stmt->bind_param('si', $hash,$alpha);
+    #$page->content .= $stmt;
+    $success = $stmt->execute();
+    if (!$success || $db->affected_rows == 0) {
+    $page->content .= '<div class="col-sm-12 text-left"><h2>ERROR: ' . $db->error . '. Please try again </h2>
+    </div></div>';
+    }
+    else {
+      $page->content .= '<h2> Your password was successfully updated! </h2></div></div>';
     }
   }
   if($cell!=''){

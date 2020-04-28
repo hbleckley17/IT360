@@ -2,7 +2,7 @@
   /* login.php
    * Bodine, Drake - 200540
    * 
-   * This page serves as the login page for storefront
+   * This page serves as the login page for whole website
    * 
   */
 

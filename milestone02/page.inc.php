@@ -127,15 +127,15 @@ class Page
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="home.php">Home</a></li>
+              <li><a href="home.php">Home</a></li>
               <li><a href="add_weekend.php">Add Weekend Plan</a></li>
               <li><a href="check_weekend.php">Check Weekend Status</a></li>
-              <li><a href="check_incentives.php">Check incentives</a></li>
-              <li><a href="add_incentives.php">Add incentives</a></li>
+              <li><a href="check_incentive.php">Check Incentives</a></li>
+              <li><a href="add_incentive.php">Add Incentives</a></li>
               <li><a href="update_profile.php">Update Profile</a></li>
               <li><a href="approve.php">Approve Weekends</a></li>
               <li><a href="add_users.php">Add Users</a></li>
-              <li><a href="create_incentives.php">Create incentives</a></li>
+              <li><a href="create_incentive.php">Create Incentives</a></li>
             </ul>
             <form  action="logout.php" method="post" class="form-inline my-2 my-lg-0">
             <button class="btn btn-outline-success my-2 my-sm-0" name="logoff" type="logoff">Log Off</button>
