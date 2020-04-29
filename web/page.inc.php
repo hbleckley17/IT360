@@ -136,6 +136,7 @@ class Page
               <li><a href="approve.php">Approve Weekends</a></li>
               <li><a href="add_users.php">Add Users</a></li>
               <li><a href="create_incentive.php">Create Incentives</a></li>
+              <li><a href="reset.php">Reset</a></li>
             </ul>
             <form  action="logout.php" method="post" class="form-inline my-2 my-lg-0">
             <button class="btn btn-outline-success my-2 my-sm-0" name="logoff" type="logoff">Log Off</button>
