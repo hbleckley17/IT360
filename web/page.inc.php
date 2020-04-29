@@ -132,7 +132,7 @@ class Page
               <li><a href="check_weekend.php">Check Weekend Status</a></li>
               <li><a href="check_incentive.php">Check Incentives</a></li>
               <li><a href="add_incentive.php">Add Incentives</a></li>
-              <li><a href="update_profile.php">Update Profile</a></li>
+              <li><a href="update.php">Update Profile</a></li>
               <li><a href="approve.php">Approve Weekends</a></li>
               <li><a href="add_users.php">Add Users</a></li>
               <li><a href="create_incentive.php">Create Incentives</a></li>

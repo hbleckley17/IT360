@@ -8,6 +8,7 @@
   if (mysqli_connect_errno()) {
   echo "<h5>ERROR: " . mysqli_connect_errno() . ": " . mysqli_connect_error() . " </h5><br>";
   }
+    if($username == 200000){
   // Create a Page object and set the Page title to "Attendance Display"
   $page = new Page("USNA Weekend Tracker");
 
@@ -133,6 +134,11 @@ if($first!='' && $alpha!='' && $last!='' && $password!=''  && $company!=''  && $
 else{
   $page->content .= '<div class="col-sm-12 text-left"><h2>Please fill out all the fields in the form above to add a user. </h2>
   </div></div>';
+}
+}
+else{
+    $page = new Page("USNA Weekend Tracker");
+    $page->content = "<h1>You are not an administrator and are not allowed to use this page. </h1>";
 }
 
 // Show the page
