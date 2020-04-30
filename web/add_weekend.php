@@ -109,7 +109,7 @@
     #$page->content .= $stmt;
     $success = $stmt->execute();
     if (!$success || $db->affected_rows == 0) {
-    $page->content .= '<div class="col-sm-12 text-left"><h2>ERROR: ' . $db->error . '. Please try again </h2>
+    $page->content .= '<div class="col-sm-12 text-left"><h2>ERROR: That alpha does not exist. Please try again </h2>
     </div></div>';
     }
     else {

@@ -1,9 +1,9 @@
 <?php
   /* check_weekend.php
    * Bodine, Drake - 200540
-   * 
+   *
    * This page shows allows the user to check his/her weekend status
-   * 
+   *
   */
 
   /// Function Definitions ///
@@ -39,7 +39,7 @@
     } else if ( $test ) {
       echo "<h4> Row: $username deleted! </h4>";
     }
-    
+
     // Create MySQL delete statement for midweekend table
     $query = "DELETE FROM midweekend WHERE alpha = $username AND wID = $wID;";
 
@@ -66,18 +66,18 @@
                   <hr>';
 
     // Get weekend data from DB
-    $query = "SELECT t2.wID, buddyname, buddyphone, address, description, 
-                     incentive_id, approved 
-                FROM ((SELECT t.wID, t.alpha, buddyname, buddyphone, address, 
-                              description, incentive_id 
-                         FROM ((SELECT midweekend.wID, alpha, buddyname, 
-                                       buddyphone, address, description 
-                                  FROM midweekend JOIN weekendplans 
-                                       ON midweekend.wID = weekendplans.wID 
-                                  WHERE alpha = ?) 
-                              AS t) 
+    $query = "SELECT t2.wID, buddyname, buddyphone, address, description,
+                     incentive_id, approved
+                FROM ((SELECT t.wID, t.alpha, buddyname, buddyphone, address,
+                              description, incentive_id
+                         FROM ((SELECT midweekend.wID, alpha, buddyname,
+                                       buddyphone, address, description
+                                  FROM midweekend JOIN weekendplans
+                                       ON midweekend.wID = weekendplans.wID
+                                  WHERE alpha = ?)
+                              AS t)
                          LEFT JOIN weekendextra ON t.alpha = weekendextra.alpha)
-                     AS t2) 
+                     AS t2)
                 LEFT JOIN approved ON t2.alpha = approved.alpha;";
     $stmt = $db->stmt_init();
     $stmt->prepare($query);
@@ -111,7 +111,7 @@
       $ct += 1;
       if($approved == 1) {
         $approved = "<span style=\"color: green;\">Yes</span>";
-      } elseif ($approved == 2) {
+      } elseif ($approved == 0) {
         $approved = "<span style=\"color: red;\">NO</span>";
       } else {
         $approved = "<i>Pending</i>";
@@ -127,6 +127,7 @@
                      <td>$button</td></tr>";
     }
     $table .= "</tbody></table>";
+
     $table .= "</div></div></div></div>";
 
     return $table;
@@ -159,7 +160,7 @@
 
   $db = new myConnectDB();
   if (mysqli_connect_errno()) {
-    echo "<h5>ERROR: " . mysqli_connect_errno() . ": " 
+    echo "<h5>ERROR: " . mysqli_connect_errno() . ": "
       . mysqli_connect_error() . " </h5><br>";
   }
 

@@ -8,6 +8,7 @@
   if (mysqli_connect_errno()) {
     echo "<h5>ERROR: " . mysqli_connect_errno() . ": " . mysqli_connect_error() . " </h5><br>";
   }
+  if($username == 200000){
   // Create a Page object and set the Page title to "Approve Weekends"
   $page = new Page("Approve Weekends");
 
@@ -93,5 +94,11 @@
   // Show the page
   #$_SESSION['date'] = date(DATE_RSS);
   #update($db, $user, session_encode());
-  $page->display();
+
+}
+else {
+  $page = new Page("Approve Weekends");
+  $page->content = "<h1>You are not an administrator and are not allowed to use this page. </h1>";
+}
+$page->display();
   ?>

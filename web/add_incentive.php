@@ -23,10 +23,6 @@
     <div class="col-sm-8 text-left">
       <form action="add_incentive.php" method="post">
         <div class="form-group">
-          <label for="exampleFormControlInput1">Alpha*</label>
-          <input type="alpha" class="form-control" name="alpha" placeholder="2XXXXX">
-        </div>
-        <div class="form-group">
           <label for="exampleFormControlInput1">WID* </label>
           <input type="wid" class="form-control" name="wid" placeholder="###">
         </div>
@@ -39,7 +35,7 @@
         </div>
         ';
 
-$alpha=$_POST["alpha"];
+$alpha=$username;
 $wid=$_POST["wid"];
 $incentive=$_POST["incentiveID"];
 

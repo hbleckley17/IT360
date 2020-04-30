@@ -9,6 +9,8 @@
   echo "<h5>ERROR: " . mysqli_connect_errno() . ": " . mysqli_connect_error() . " </h5><br>";
   }
   // Create a Page object and set the Page title to "Attendance Display"
+  if($username == 200000){
+// Create a Page object and set the Page title to "Attendance Display"
   $page = new Page("USNA Weekend Tracker");
 
   // Add to the Page (everything we want displayed)
@@ -116,6 +118,12 @@ $query = "SELECT incentive_id,incentives_available,rewarddescrip,adds_weekend
   }
 
   $page->content .= "</tbody></table></div></div></div></div>";
+}
+  else{
+      $page = new Page("USNA Weekend Tracker");
+      $page->content = "<h1>You are not an administrator and are not allowed to use this page. </h1>";
+  }
+
 
 // Show the page
 #$_SESSION['date'] = date(DATE_RSS);

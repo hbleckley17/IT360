@@ -29,6 +29,7 @@
             Approve Weekend- Company Officers can approve weekends here <br>
             Add Users- Administrators can add new users to their company <br>
             Add Incentives- Administrators can add an incentive for midshipmen <br>
+            Reset- Administrators can reset the weekend plans and approvals after every weekend <br>
         </p>
 
       </div>
