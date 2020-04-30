@@ -8,10 +8,10 @@
   if (mysqli_connect_errno()) {
     echo "<h5>ERROR: " . mysqli_connect_errno() . ": " . mysqli_connect_error() . " </h5><br>";
   }
+if($username == 200000){
   // Create a Page object and set the Page title to "Approve Weekends"
   $page = new Page("Approve Weekends");
 
-  //if($username != )
 
   // Add company submission to the page
   $page->content = '
@@ -45,7 +45,8 @@ $company=$_POST['company'];
 
     $query = "SELECT midshipmen.alpha,midshipmen.firstname,midshipmen.lastname,midweekend.buddyname,midweekend.buddyphone,weekendplans.wID,weekendplans.address,weekendplans.description
               FROM midweekend join midshipmen on midshipmen.alpha=midweekend.alpha JOIN weekendplans on weekendplans.wid=midweekend.wid Join Company on midweekend.alpha=Company.alpha
-              WHERE Company.Company = ?;";
+              WHERE Company.Company = ?
+              AND midweekend.alpha NOT in (SELECT alpha FROM approved);";
 
       $stmt = $db->stmt_init();
       $stmt->prepare($query);
@@ -317,7 +318,11 @@ $company=$_POST['company'];
               }
               return $thisCompany;
           }
-
+    }
+else {
+  $page = new Page("Approve Weekends");
+  $page->content = "<h1>You are not an administrator and are not allowed to use this page. </h1>";
+}
 
   #$stmt->close();
 
