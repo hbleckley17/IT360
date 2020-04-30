@@ -7,6 +7,8 @@
   */
 
   /// Function Definitions ///
+  
+  // Delete the weekend entry with weekend ID wID for the alpha at username
   function deleteWeekendEntry($db, $username, $wID, $test=FALSE) {
     // Create MySQL delete statement for approved table
     $query = "DELETE FROM approved WHERE alpha = $username AND wID = $wID;";
@@ -54,6 +56,8 @@
     }
   }
 
+  // Create table filled with all the current weekend list entries for the
+  // the alpha username
   function getWeekendStatusTable($db, $username) {
     // Setup info above table
     $table = '<div class="container-fluid text-left">
@@ -96,6 +100,7 @@
                           <th> Description </th>
                           <th> Incentive ID </th>
                           <th> Approved? </th>
+                          <th> Delete? </th>
                         </tr>
                       </thead>
                     <tbody>";
@@ -111,30 +116,32 @@
       } else {
         $approved = "<i>Pending</i>";
       }
+      $button = getDeleteButton($wID);
       $table .= "<tr><td>$wID</td>
                      <td>$bName</td>
                      <td>$bPhone</td>
                      <td>$addr</td>
                      <td>$desc</td>
                      <td>$iID</td>
-                     <td>$approved</td></tr>";
+                     <td>$approved</td>
+                     <td>$button</td></tr>";
     }
     $table .= "</tbody></table>";
-
-    // Add button to delete weekend entry
-    if($ct > 0) {
-      $table .= "<form action=\"\" method=\"post\" 
-                       onsubmit=\"return confirm('Are you sure?')\">";
-      $table .= "<input type=\"hidden\" name=\"wID\" value=\"$wID\" />";
-      $table .= "<input name='delete' type='submit' value='Delete Entry' class='btn btn-danger'>";
-      $table .= "</form>";
-
-    }
     $table .= "</div></div></div></div>";
 
     return $table;
   }
 
+  // Get html string for delete button for the weekend ID wID
+  function getDeleteButton($wID) {
+    $button .= "<form action=\"\" method=\"post\" 
+                     onsubmit=\"return confirm('Are you sure?')\">";
+    $button .= "<input type=\"hidden\" name=\"wID\" value=\"$wID\" />";
+    $button .= "<input name='delete' type='submit' value='X' class='btn btn-danger'>";
+    $button .= "</form>";
+
+    return $button;
+  }
 
   /// Included files ///
   require_once("auth.inc.php"); // ensure user is logged in
@@ -148,10 +155,6 @@
 
     // Delete weekend entry data from DB
     deleteWeekendEntry($db, $username, $wID);
-
-    // Redirect to add_weekend.php
-    header('Location: add_weekend.php');
-    die;
   }
 
   $db = new myConnectDB();
