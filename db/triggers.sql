@@ -35,3 +35,25 @@ end if;
 
 END; $$
 DELIMITER ;
+
+# {3}
+DROP TRIGGER IF EXISTS incentiveAddWeekend;
+
+DELIMITER $$
+CREATE TRIGGER incentiveAddWeekend
+AFTER INSERT ON incentives
+FOR EACH ROW
+BEGIN
+  DECLARE weekendcount INT;
+  IF ( NEW.alpha IS NOT NULL ) THEN
+  SET weekendcount =  (SELECT (incentives_available.adds_weekend+weekends_left.weekends_left)
+                          FROM weekends_left,incentives_available
+                          WHERE weekends_left.alpha = NEW.alpha
+                          AND incentives_available.incentive_id=NEW.incentive_id);
+
+  /* update the Students table with the new GPA value */
+  UPDATE weekends_left SET weekends_left = weekendcount WHERE alpha = NEW.alpha;
+  END IF;
+
+END; $$
+DELIMITER ;
