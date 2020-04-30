@@ -128,6 +128,12 @@
     }
     $table .= "</tbody></table>";
 
+    if($ct > 1) {
+      $table .= "<p><h3><span style=\"color: red;\">*ATTENTION:</span> You 
+        must only have one pending weekend!  Please delete the plan(s) you do
+        not wish to submit.</h3></p>";
+    }
+    
     $table .= "</div></div></div></div>";
 
     return $table;
