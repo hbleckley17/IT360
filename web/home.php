@@ -23,12 +23,13 @@
         <p> Add weekend - Create a new weekend plan or add yourself to someone elses weekend plan<br>
             Check Weekend- Check your weekend approval Status <br>
             Check Incentives- Check if you have any incentives to use on your weekend!<br>
+            Add Incentives- Use a incentive with your weekend <br>
             Update Profile - Got a new phone number or change companies? Change your information here! <br>
             <br>
             For Admin only:<br>
             Approve Weekend- Company Officers can approve weekends here <br>
             Add Users- Administrators can add new users to their company <br>
-            Add Incentives- Administrators can add an incentive for midshipmen <br>
+            Create Incentives- Administrators can create a new incentive or award an incentive to midshipmen <br>
             Reset- Administrators can reset the weekend plans and approvals after every weekend <br>
         </p>
 
