@@ -1,3 +1,5 @@
+#Drake Bodine
+#Creates a minimum of two entries for every table
 INSERT INTO midshipmen (alpha,firstname,lastname,password) VALUES
 (201368,'Lani','Davis','$2y$10$dmPSQNc8h1uZ6l6eMeSu.evriBgAL3Cr7ImkPX9ahK2OVJ0LXUue.'),
 (200540,'Drake','Bodine','$2y$10$DY7labTm5aBygQqxWHgcjeF0few4G5KmOM/a2ak68RbTwviyqd7ea'),

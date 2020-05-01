@@ -2,7 +2,7 @@
 -- Fri Apr 10 12:24:34 2020
 -- Model: New Model    Version: 1.0
 -- MySQL Workbench Forward Engineering
-
+-- Created by Lani Davis to create tables for the database
 -- -----------------------------------------------------
 -- Schema it360_weekend_tracker
 -- -----------------------------------------------------

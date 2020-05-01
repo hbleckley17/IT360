@@ -1,6 +1,6 @@
 <?php
   //Lani Davis m201368
-  // Load the Page Class (insnamee of page.inc.php)
+  //Allows admin to reset the database and account for used incentives after each weekend.
   require_once("auth.inc.php");
   require_once("page.inc.php");
   require_once('mysql.inc.php');    # MySQL Connection Library

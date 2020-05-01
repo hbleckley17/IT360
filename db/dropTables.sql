@@ -1,4 +1,5 @@
 /*
+Lani Davis
 Will drop all tables from the weekend tracker database
 */
 DROP TABLE auth_session;

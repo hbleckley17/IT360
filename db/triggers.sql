@@ -1,4 +1,5 @@
 # Lani Davis m201368
+#Create triggers for database to check originiality of weekend plans, decriment weekendcount, check company validity, addweekend if an incentive added
 
 # {1}
 DROP TRIGGER IF EXISTS checkWeekendPlanOriginality;
