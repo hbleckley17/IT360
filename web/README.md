@@ -26,9 +26,9 @@ submitted a weekend plan that the users will have in common, the user can enter 
 Weekend ID (WID) provided to his/her buddy upon submission of the form. If a WID is 
 provided, the user should leave the address and description blank. If no WID is provided,
 a user must provide an address and description. The address field can be filled with 
-“Sponsors” if the user wants the form to auto-submit the Sponsor’s Address associated 
-with the user’s profile. Regardless, a buddy’s name and phone number must be entered into
-the form.
+"Sponsors" if the user is going to their approved sponsor address registered with the 
+sponsor program and in their user profile. Regardless, a buddy’s name and phone number 
+must be entered into the form.
 
 Additionally, a user can submit a weekend plan for another friend for ease of use. All 
 they need to do is provide the alpha of the friend and follow the same instructions as 
