@@ -60,8 +60,18 @@
   // the alpha username
   function getWeekendStatusTable($db, $username) {
     // Setup info above table
+    $query = "SELECT weekends_left
+                FROM weekends_left
+                WHERE alpha = ?";
+      $stmt = $db->stmt_init();
+      $stmt->prepare($query);
+      $stmt->bind_param('i', $username);
+      $success = $stmt->execute();
+      $stmt->bind_result($num);
+      $stmt->fetch();
     $table = '<div class="container-fluid text-left">
                 <div class="col-sm-12 text-left">
+                  <h3> Midshipmen '.$username.' has '.$num.' weekends left.
                   <h1>Weekend Status ('.$username.'):</h1>
                   <hr>';
 
