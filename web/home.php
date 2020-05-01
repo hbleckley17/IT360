@@ -1,4 +1,6 @@
 <?php
+  // home.php: Landing/home page for Weekend Tracker Site
+  //Harrison Bleckley m210498
   //Lani Davis m201368
   // Load the Page Class (inside of page.inc.php)
   #require_once("auth.inc.php");

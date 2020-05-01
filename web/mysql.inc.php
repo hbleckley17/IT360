@@ -1,5 +1,10 @@
 <?php
-  // mysql.inc.php - This file will be used to establish the database connection.
+  /* mysql.inc.php
+   * Bodine, Drake - 200540
+   * 
+   * This file will be used to establish the database connection.
+   * 
+  */
   class myConnectDB extends mysqli{
     public function __construct($hostname="localhost",
         $db_user="m200540",

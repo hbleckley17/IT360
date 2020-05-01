@@ -1,5 +1,7 @@
 <?php
+  // approve.php: Approve submitted weekends
   //Harrison Bleckley m210498
+ 
   // Load the Page Class, Init DB
   require_once("auth.inc.php");
   require_once("page.inc.php");
