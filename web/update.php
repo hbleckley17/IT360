@@ -1,6 +1,6 @@
 <?php
   //Lani Davis m201368
-  // Load the Page Class (insnamee of page.inc.php)
+  // Allows midshipmen to update their personal information like company, sponsor, password, and cell
   require_once("auth.inc.php");
   require_once("page.inc.php");
   require_once('mysql.inc.php');    # MySQL Connection Library
