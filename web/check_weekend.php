@@ -7,7 +7,7 @@
   */
 
   /// Function Definitions ///
-  
+
   // Delete the weekend entry with weekend ID wID for the alpha at username
   function deleteWeekendEntry($db, $username, $wID, $test=FALSE) {
     // Create MySQL delete statement for approved table
@@ -111,7 +111,7 @@
       $ct += 1;
       if($approved == 1) {
         $approved = "<span style=\"color: green;\">Yes</span>";
-      } elseif ($approved == 0) {
+      } elseif ($approved == 2) {
         $approved = "<span style=\"color: red;\">NO</span>";
       } else {
         $approved = "<i>Pending</i>";
@@ -129,11 +129,11 @@
     $table .= "</tbody></table>";
 
     if($ct > 1) {
-      $table .= "<p><h3><span style=\"color: red;\">*ATTENTION:</span> You 
+      $table .= "<p><h3><span style=\"color: red;\">*ATTENTION:</span> You
         must only have one pending weekend!  Please delete the plan(s) you do
         not wish to submit.</h3></p>";
     }
-    
+
     $table .= "</div></div></div></div>";
 
     return $table;
@@ -141,7 +141,7 @@
 
   // Get html string for delete button for the weekend ID wID
   function getDeleteButton($wID) {
-    $button .= "<form action=\"\" method=\"post\" 
+    $button .= "<form action=\"\" method=\"post\"
                      onsubmit=\"return confirm('Are you sure?')\">";
     $button .= "<input type=\"hidden\" name=\"wID\" value=\"$wID\" />";
     $button .= "<input name='delete' type='submit' value='X' class='btn btn-danger'>";
