@@ -32,7 +32,7 @@ INSERT INTO Cell(alpha,phone_number) VALUES
 (200000,'3562783847');
 INSERT INTO approved(wID,alpha,approved) VALUES
 (1,201368,1),
-(2,200000,0);
+(2,200000,2);
 INSERT INTO weekendextra(wID,incentive_id,alpha) VALUES
 (1,1,201368),
 (2,2,200000);
