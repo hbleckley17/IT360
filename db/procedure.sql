@@ -1,5 +1,5 @@
 # Lani Davis m201368
-
+# the reset procedure. resets the database after each weekend by removing weekend plans and decrimenting incentive that was used
 # {1}
 
 DELIMITER $$
