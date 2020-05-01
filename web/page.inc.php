@@ -1,3 +1,5 @@
+//Lani Davis
+// Provides the CSS and formatting for the website to be visually pleasing and have a navbar
 <?php
 class Page
 {
